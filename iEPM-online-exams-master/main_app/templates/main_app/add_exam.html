@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block title %}
+    <title>Add Exam</title>
+{% endblock %}
+
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'main_app/css/add_exam.css' %}">
+{% endblock %}
+
+{% block logout_in_navbar %}
+
+    {% include 'sign_out_button.html' %}
+
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container" style="padding: 10px;">
+
+        <h1 class="display-4">Add Exam</h1>
+
+        <div class="my_container">
+                <form method="post" action="{% url 'main:add_exam' %}">{% csrf_token %}
+                    {{ form|crispy }}
+                    <span><a href="{% url 'users:home' %}" id="backbtn" class="btn btn-secondary backBtn">Back</a></span>
+                    <button type="submit" class="btn btn-success">Add <i class="fa fa-plus"></i></button>
+                </form>
+        </div>
+    </div>
+
+
+{% endblock %}
