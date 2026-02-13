@@ -68,6 +68,13 @@ def the_login(request):
 
         username = request.POST['username']
         password = request.POST['password']
+         
+         # Added validation (NEW CODE)
+    if len(password) < 6:
+        messages.error(request, "Password must be at least 6 characters long")
+        return render(request, 'users/login.html', {'form': form})
+
+    user = authenticate(username=username, password=password)
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
