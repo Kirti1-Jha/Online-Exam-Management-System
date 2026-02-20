@@ -18,7 +18,7 @@ class MyUserCreationForm(UserCreationForm):
 #     class Meta:
 #         model = User
 #         fields = ['username', 'password1', 'password2']
-#
+#This is a comment by pooja yadav
 #
 # class StudentCreationForm(UserCreationForm):
 #     class Meta:
