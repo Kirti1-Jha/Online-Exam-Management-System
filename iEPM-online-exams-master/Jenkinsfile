@@ -4,11 +4,11 @@ pipeline {
     stages {
 
         stage('Checkout Code') {
-            steps {
-                echo 'Cloning Repository...'
-                git 'https://github.com/Kirti1-Jha/Online-Exam-Management-System.git'
-            }
-        }
+    steps {
+        echo 'Cloning Repository...'
+        git branch: 'main', url: 'https://github.com/Kirti1-Jha/Online-Exam-Management-System.git'
+    }
+}
 
         stage('Install Dependencies') {
             steps {
