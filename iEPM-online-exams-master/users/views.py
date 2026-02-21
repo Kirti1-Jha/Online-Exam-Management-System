@@ -68,32 +68,25 @@ def the_login(request):
 
         username = request.POST['username']
         password = request.POST['password']
-         
-         # Added validation (NEW CODE)
-    if len(password) < 6:
-        messages.error(request, "Password must be at least 6 characters long")
-        return render(request, 'users/login.html', {'form': form})
 
-    user = authenticate(username=username, password=password)
+        # Password length validation
+        if len(password) < 6:
+            messages.error(request, "Password must be at least 6 characters long")
+            return render(request, 'users/login.html', {'form': form})
+
         user = authenticate(username=username, password=password)
+
         if user is not None:
             login(request, user)
-            messages.success(request, f"Welcome ( {username} )")
+            messages.success(request, f"Welcome ({username})")
             return redirect('users:home')
-
         else:
-            messages.error(request, f"Invalid Username or Password !!")
+            messages.error(request, "Invalid Username or Password !!")
 
     data = {
         'form': form
     }
     return render(request, 'users/login.html', data)
-
-
-def the_logout(request):
-    logout(request)
-    messages.success(request, 'Logged out successfully')
-    return redirect('main:home')
 
 
 def examiner_profile(request, slug):
