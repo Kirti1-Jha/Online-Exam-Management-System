@@ -5,8 +5,8 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                echo 'Skipping dependency installation for CI demo...'
-                bat 'echo Dependencies stage executed'
+                echo 'Dependencies stage simulated for CI demo'
+                bat 'echo Dependencies Installed'
             }
         }
 
