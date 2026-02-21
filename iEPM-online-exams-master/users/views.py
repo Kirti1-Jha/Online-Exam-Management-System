@@ -88,7 +88,11 @@ def the_login(request):
     }
     return render(request, 'users/login.html', data)
 
-
+def the_logout(request):
+    logout(request)
+    messages.success(request, 'Logged out successfully')
+    return redirect('main:home')
+    
 def examiner_profile(request, slug):
 
     if request.method == 'POST':
