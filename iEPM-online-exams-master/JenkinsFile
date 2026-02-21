@@ -1,1 +1,42 @@
+pipeline {
+    agent any
 
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                echo 'Cloning Repository...'
+                git 'https://github.com/Kirti1-Jha/Online-Exam-Management-System.git'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                echo 'Installing Python Dependencies...'
+                bat 'python -m pip install --upgrade pip'
+                bat 'pip install -r requirements.txt'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Checking Python Version...'
+                bat 'python --version'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running Basic Test...'
+                bat 'echo Test Stage Executed Successfully'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Simulating Deployment...'
+                bat 'echo Deployment Successful'
+            }
+        }
+    }
+}
