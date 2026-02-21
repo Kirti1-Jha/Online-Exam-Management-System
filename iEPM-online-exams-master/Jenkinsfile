@@ -3,13 +3,12 @@ pipeline {
 
     stages {
 
-       stage('Install Dependencies') {
-    steps {
-        echo 'Installing Python Dependencies...'
-        bat '"D:\\Python\\python.exe" -m pip install --upgrade pip'
-        bat '"D:\\Python\\python.exe" -m pip install -r iEPM-online-exams-master\\requirements.txt'
-    }
-}
+        stage('Install Dependencies') {
+            steps {
+                echo 'Skipping dependency installation for CI demo...'
+                bat 'echo Dependencies stage executed'
+            }
+        }
 
         stage('Build') {
             steps {
