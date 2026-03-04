@@ -20,7 +20,9 @@ pipeline {
         stage('Test') {
     steps {
         echo 'Running Django Test Cases...'
-        bat '"D:\\Python\\python.exe" manage.py test'
+        dir('iEPM-online-exams-master') {
+            bat '"D:\\Python\\python.exe" manage.py test'
+        }
     }
 }
 
