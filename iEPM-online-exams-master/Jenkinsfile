@@ -18,11 +18,11 @@ pipeline {
         }
 
         stage('Test') {
-            steps {
-                echo 'Running Test Stage...'
-                bat 'echo Test Successful'
-            }
-        }
+    steps {
+        echo 'Running Django Test Cases...'
+        bat '"D:\\Python\\python.exe" manage.py test'
+    }
+}
 
         stage('Deploy') {
             steps {
