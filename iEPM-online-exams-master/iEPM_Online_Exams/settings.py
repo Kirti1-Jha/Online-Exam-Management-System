@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'arcane-mountain-25478.herokuapp.com',
     'iepm-exams-system.herokuapp.com',
-    '127.0.0.1'
+    'localhost', '127.0.0.1' 
 ]
 
 

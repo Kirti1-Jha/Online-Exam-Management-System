@@ -9,7 +9,7 @@ class Exam(models.Model):
     exam_name = models.CharField(max_length=255)
     slug = models.SlugField(null=True, blank=True)
     category = models.CharField(max_length=255)
-    exam_creation_date = models.DateTimeField(default=timezone.datetime.now())
+    exam_creation_date = models.DateTimeField(default=timezone.now)
     is_published = models.BooleanField(default=False)
     students = models.ManyToManyField(MyUser, related_name='+')
     num_of_questions = models.IntegerField(default=0)
@@ -43,7 +43,7 @@ class TakenExam(models.Model):
     exam = models.ForeignKey(Exam, on_delete=models.CASCADE)
     score = models.IntegerField()
     full_mark = models.IntegerField()
-    done_date = models.DateTimeField(default=timezone.datetime.now())
+    done_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.student.user.username + '\'s score in ' + self.exam.exam_name + ' exam'
